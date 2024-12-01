@@ -14,6 +14,16 @@
   text-align: center;
 }
 
+.main-content h1{
+  font-size: 40px;
+  font-weight: 700;
+  width: 70%;
+  text-align: center;
+}
+
+.main-content p{
+  width: 75%;
+}
 .video-container {
   margin-top: 40px;
   width: 100%;
@@ -42,8 +52,10 @@
 .animated-car {
   position: relative;
   margin-top: 60px;
-  width: 200%;
+  width: 60%;
   height: 100px;
+  margin-right: 18%;
+  align-items: center;
 }
 
 .animated-car img {
@@ -72,11 +84,28 @@
 .info-card h2 {
   font-size: 1.5rem;
   color: #333;
+  color: rgb(156, 153, 153);
+  margin-bottom: 10px;
 }
 
 .info-card p {
   font-size: 1rem;
-  color: #666;
+  color: #868383;
+  text-align: justify;
+}
+
+.info-card p strong{
+  color: #868383;
+}
+
+.info-card p ul li{
+  color: #868383;
+  text-align: justify;
+  margin: 10px;
+}
+
+.info-card p ul li strong{
+  color: #a09d9d;
 }
 
 .image-card img {
@@ -157,24 +186,24 @@ ul {
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 15px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: linear-gradient(45deg, #32cd32, #228b22);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: linear-gradient(45deg, #32cd32, #228b22);
 }
 
 .btn-secondary {
   background-color: #fff;
-  color: #007bff;
+  color: #228b22;
 }
 
 .btn-secondary:hover {
@@ -198,4 +227,61 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+
+/* Base Styles for Info/Image Sections */
+.info-image, .image-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0;
+  gap: 2rem;
+}
+
+.info-card, .image-card {
+  flex: 1;
+}
+
+.info-card {
+  padding: 1rem;
+}
+.info-card p{
+  width: 100%;
+}
+
+.image-card img {
+  width: 75%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .info-image, .image-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-card {
+    width: 75%;
+    margin: 0 auto;
+    order: 2;
+  }
+
+  .image-card {
+    width: 100%;
+    order: 1;
+  }
+
+  .info-card p{
+    width: 100%;
+  }
+
+  .image-card img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
 }

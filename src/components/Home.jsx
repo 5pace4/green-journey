@@ -14,8 +14,7 @@ function Home() {
       <main className="main-content">
         <h1>Understanding CO2 Emissions from Cars</h1>
         <p>
-          Carbon dioxide (CO2) is a greenhouse gas that contributes to global
-          warming by trapping heat in the atmosphere.
+        Carbon dioxide (CO2) is one of the primary greenhouse gases responsible for global warming. It plays a significant role in the Earth's natural greenhouse effect, which helps maintain temperatures suitable for life. However, human activities, particularly the burning of fossil fuels (like coal, oil, and natural gas), deforestation, and industrial processes, have dramatically increased CO2 levels in the atmosphere.
         </p>
 
         <div className="button-group">

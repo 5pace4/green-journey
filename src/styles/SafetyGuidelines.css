@@ -72,22 +72,24 @@ p {
   font-size: 20px;
   color: #ecf0f1;
   margin-bottom: 15px;
+  background-color: inherit;
 }
 
 .guideline-section p {
   font-size: 14px;
   color: #ecf0f1;
+  background-color: inherit;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .guideline-section {
-    width: calc(50% - 20px); /* Two sections per row on medium screens */
+    width: calc(100% - 20px);
   }
 }
 
 @media (max-width: 480px) {
   .guideline-section {
-    width: 100%; /* One section per row on small screens */
+    width: 100%;
   }
 }

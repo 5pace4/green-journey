@@ -40,9 +40,9 @@
   flex: 1;
   min-width: 300px;
   max-width: 400px;
-  background: #222;
   padding: 20px;
   border-radius: 10px;
+  background-color: #222;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -50,11 +50,13 @@
 .contact-info-wrapper h2 {
   color: #28a745;
   margin-bottom: 15px;
+  background-color: #222;
 }
 
 .contact-form-wrapper p,
 .contact-info-wrapper p {
   color: #ddd;
+  background-color: #222;
 }
 
 /* Form */
@@ -112,6 +114,13 @@
   margin-top: 10px;
   display: flex;
   gap: 10px;
+  background-color: #222;
+
+  justify-content: center;
+}
+
+.social-links a{
+  background-color: #222;
 }
 
 .social-icon {
@@ -121,7 +130,7 @@
 }
 
 .social-icon:hover {
-  color: #28a745;
+  transform: translateY(-2px);
 }
 
 /* Map Section */
@@ -154,17 +163,21 @@
 .newsletter-section h2 {
   color: #28a745;
   margin-bottom: 10px;
+  background-color: #222;
 }
 
 .newsletter-section p {
   color: #ccc;
   margin-bottom: 15px;
+  background-color: #222;
 }
 
 .newsletter-form {
   display: flex;
   justify-content: center;
   gap: 10px;
+  padding: 35px;
+  background-color: #222;
 }
 
 .newsletter-input {

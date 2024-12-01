@@ -32,18 +32,30 @@ body {
   font-size: 1.7rem; /* Increased font size */
   font-weight: bold; /* Bold text */
   color: white;
-  text-decoration: none; /* No underline */
-  background: none; /* No background */
+  text-decoration: none; /* No underline */  
+  background-color: #333;
+}
+
+.navbar-brand a:hover{
+  color: #32cd32;
+  transition: 0.3s ease-in;
+}
+
+.navbar-brand a{
+  background-color: #333;
+  text-decoration: none;
 }
 /* Left-side nav items */
 .navbar-links-left {
   display: flex; /* Align horizontally */
   list-style: none;
   margin-left: 0; /* Start from left */
+  background-color: #333
 }
 
 .navbar-links-left li {
   margin-right: 2rem; /* Spacing between items */
+  background-color: #333
 }
 
 .navbar-links-left a {
@@ -52,11 +64,12 @@ body {
   font-size: 1.2rem; /* Increased font size */
   font-weight: bold; /* Bold text */
   transition: color 0.3s;
-  background: none; /* No background */
+  background-color: #333;
 }
 
 .navbar-links-left a:hover {
-  color: #f0a500;
+  border-bottom: 1px solid #32cd32;
+  transition: .5s ease;
 }
 
 /* Right-side nav items */
@@ -64,10 +77,24 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
+  background-color: #333;
 }
 
 .navbar-links-right li {
   margin-left: 1rem; /* Spacing between SignUp and SignIn */
+  background-color: #333;
+}
+
+.navbar-links-right li a{
+  background-color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.navbar-links-right li a:hover{
+  color: #32cd32;
+  transition: 0.5s ease;
 }
 
 .navbar-links-right .signin {
@@ -105,22 +132,34 @@ body {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .navbar-links-left,
-  .navbar-links-right {
-    display: none; /* Hide links on small screens */
+  .navbar-links-left{
+    display: none;
     flex-direction: column;
     position: absolute;
     top: 60px;
     right: 0;
     background-color: #333;
-    width: 100%;
+    width: 95%;
     padding: 1rem;
     border-radius: 8px;
+    height: 370px;
   }
 
-  .navbar-links-left.active,
-  .navbar-links-right.active {
-    display: flex; /* Show links when active */
+  .navbar-links-right{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 280px;
+    padding: 1rem;
+    margin-left: 150px;
+  }
+
+  .navbar-links-left.active{
+    display: flex;
+  }
+
+  .navbar-links-right.active{
+    display: flex;
   }
 
   .navbar-links-left li,
@@ -129,6 +168,6 @@ body {
   }
 
   .hamburger {
-    display: flex; /* Show hamburger on mobile */
+    display: flex;
   }
 }

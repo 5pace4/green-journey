@@ -5,6 +5,7 @@
   width: 100%;
   padding: 40px 20px;
   box-sizing: border-box;
+  border-top: 1px solid #444343;
 }
 
 .footer-container {
@@ -39,7 +40,7 @@
 }
 
 .footer-column li:hover {
-  color: #007bff;
+  color: #32cd32;
 }
 
 /* Footer Bottom Section */
@@ -60,7 +61,7 @@
 }
 
 .social-icons span:hover {
-  color: #007bff;
+  color: #32cd32;
 }
 
 /* Responsive Design */

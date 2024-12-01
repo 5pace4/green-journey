@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import '../styles/Navbar.css';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,15 +16,15 @@ const Navbar = () => {
           <NavLink to="/">Green Journey</NavLink>
         </div>
         {/* Left side nav items */}
-        <ul className={`navbar-links-left ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`navbar-links-left ${isMenuOpen ? "active" : ""}`}>
           <li>
             <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/calculate" onClick={() => setIsMenuOpen(false)}>
-              Calculate
+            <NavLink to="/best-path" onClick={() => setIsMenuOpen(false)}>
+              Journey
             </NavLink>
           </li>
           <li>
@@ -42,7 +42,7 @@ const Navbar = () => {
           </li>
         </ul>
         {/* Right side nav items */}
-        <ul className={`navbar-links-right ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`navbar-links-right ${isMenuOpen ? "active" : ""}`}>
           <li>
             <NavLink to="/signup" onClick={() => setIsMenuOpen(false)}>
               Sign Up

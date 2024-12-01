@@ -1,11 +1,11 @@
 import '../styles/SafetyGuidelines.css';
 
 // Image paths for each guideline
-import preparedImage from '../assets/images/c1.jpg';
-import trafficRulesImage from '../assets/images/c1.jpg';
-import distractionsImage from '../assets/images/c1.jpg';
-import defensiveDrivingImage from '../assets/images/c1.jpg';
-import poorConditionsImage from '../assets/images/c1.jpg';
+import preparedImage from '../assets/images/b1.png';
+import trafficRulesImage from '../assets/images/b2.png';
+import distractionsImage from '../assets/images/b3.png';
+import defensiveDrivingImage from '../assets/images/b4.png';
+import poorConditionsImage from '../assets/images/b5.png';
 
 const SafetyGuidelines = () => {
   // Guidelines Data with images and list-formatted content
@@ -89,9 +89,9 @@ const SafetyGuidelines = () => {
           >
             <img src={item.imgSrc} alt={item.title} className="guideline-img" />
             <h2>{item.title}</h2>
-            <ul>
+            <ul className='content-list'>
               {item.content.map((text, index) => (
-                <li key={index}>{text}</li>
+                <li key={index} style={{ backgroundColor: item.bgColor }}>{text}</li>
               ))}
             </ul>
           </div>
