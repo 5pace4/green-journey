@@ -1,0 +1,90 @@
+/* General Footer Styles */
+.footer {
+  background-color: #1d1d1d;
+  color: #ffffff;
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-column li:hover {
+  color: #007bff;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons span {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.social-icons span:hover {
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    min-width: unset;
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  .footer-column h4 {
+    font-size: 18px;
+  }
+
+  .footer-column li {
+    font-size: 16px;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+  }
+}

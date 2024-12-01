@@ -1,0 +1,201 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.video-container {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 800px; /* Limit the max width */
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  background-color: #000; /* Add background color to help visibility */
+  width: 100%;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove border from iframe */
+}
+
+/* Animated Car */
+.animated-car {
+  position: relative;
+  margin-top: 60px;
+  width: 200%;
+  height: 100px;
+}
+
+.animated-car img {
+  position: absolute;
+  bottom: 0;
+  width: 300px;
+  animation: moveCar 5s ease-in-out infinite;
+}
+
+/* Layout for alternating info and image cards */
+.info-image,
+.image-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.info-card,
+.image-card {
+  width: 48%;
+  margin: 10px;
+}
+
+.info-card h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.info-card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.image-card img {
+  width: 75%;
+  height: auto;
+  border-radius: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.affect {
+  text-align: left;
+}
+
+/* Optional: Add some padding to make the cards look better */
+.main-content {
+  padding: 20px;
+}
+
+.chart-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Keyframe Animation for Car Movement */
+@keyframes moveCar {
+  0% {
+    left: -150px;
+  }
+  50% {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+  .nav-actions {
+    display: none; /* Hide navigation links on mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger icon */
+  }
+
+  .nav-links {
+    display: none; /* Hide desktop nav links on mobile */
+  }
+
+  .nav-overlay.open {
+    display: flex;
+  }
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #007bff;
+}
+
+.btn-secondary:hover {
+  background-color: #f0f0f0;
+}
+
+.video-container {
+  margin-top: 40px;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

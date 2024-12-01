@@ -1,0 +1,134 @@
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0; /* Remove any default margin */
+  padding-top: 60px; /* Prevent overlap with fixed navbar */
+}
+
+/* Navbar styling */
+.navbar {
+  position: fixed; /* Fix navbar at the top */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: white;
+  z-index: 1000; /* Ensure it stays above other content */
+  display: flex;
+  justify-content: space-between; /* Space between brand and items */
+  align-items: center;
+}
+
+/* Brand styling */
+.navbar-brand {
+  font-size: 1.7rem; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  color: white;
+  text-decoration: none; /* No underline */
+  background: none; /* No background */
+}
+/* Left-side nav items */
+.navbar-links-left {
+  display: flex; /* Align horizontally */
+  list-style: none;
+  margin-left: 0; /* Start from left */
+}
+
+.navbar-links-left li {
+  margin-right: 2rem; /* Spacing between items */
+}
+
+.navbar-links-left a {
+  text-decoration: none; /* No underline */
+  color: white;
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  transition: color 0.3s;
+  background: none; /* No background */
+}
+
+.navbar-links-left a:hover {
+  color: #f0a500;
+}
+
+/* Right-side nav items */
+.navbar-links-right {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar-links-right li {
+  margin-left: 1rem; /* Spacing between SignUp and SignIn */
+}
+
+.navbar-links-right .signin {
+  background: linear-gradient(45deg, #32cd32, #228b22); /* Green gradient */
+  color: white;
+  padding: 0.7rem 1.5rem; /* Increased padding for button effect */
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  border: none;
+  border-radius: 4px;
+  text-decoration: none; /* No underline */
+  transition: background 0.3s;
+}
+
+.navbar-links-right .signin:hover {
+  background: linear-gradient(45deg, #228b22, #32cd32); /* Reverse gradient */
+}
+
+/* Hamburger menu styling for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.bar {
+  height: 4px;
+  background-color: white;
+  width: 100%;
+  border-radius: 2px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-links-left,
+  .navbar-links-right {
+    display: none; /* Hide links on small screens */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #333;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .navbar-links-left.active,
+  .navbar-links-right.active {
+    display: flex; /* Show links when active */
+  }
+
+  .navbar-links-left li,
+  .navbar-links-right li {
+    margin: 1rem 0;
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+}
