@@ -1,22 +1,22 @@
-import { useState, useEffect, useCallback, useMemo, useRef } from "react";
-import mapboxgl from "mapbox-gl";
-import Autosuggest from "react-autosuggest";
-import "../styles/BestPath.css";
-import GraphContainer from "./GraphContainer";
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import mapboxgl from 'mapbox-gl';
+import Autosuggest from 'react-autosuggest';
+import '../styles/BestPath.css';
+import GraphContainer from './GraphContainer';
 
 mapboxgl.accessToken =
-  "pk.eyJ1IjoiNXBhY2U0IiwiYSI6ImNtNDJqdzZlaDAxOW4yeHNkeDc0cXFiNWMifQ.iON05oX8i4q_J-7jJJy5HA";
+  'pk.eyJ1IjoiNXBhY2U0IiwiYSI6ImNtNDJqdzZlaDAxOW4yeHNkeDc0cXFiNWMifQ.iON05oX8i4q_J-7jJJy5HA';
 
 const BestPath = () => {
-  const [source, setSource] = useState("");
-  const [destination, setDestination] = useState("");
-  const [transportMode, setTransportMode] = useState("driving");
+  const [source, setSource] = useState('');
+  const [destination, setDestination] = useState('');
+  const [transportMode, setTransportMode] = useState('driving');
   const [map, setMap] = useState(null);
   const [routeInfo, setRouteInfo] = useState(null);
   const [sourceCoords, setSourceCoords] = useState(null);
   const [destinationCoords, setDestinationCoords] = useState(null);
   const [suggestions, setSuggestions] = useState([]);
-  const [inputFocus, setInputFocus] = useState("");
+  const [inputFocus, setInputFocus] = useState('');
 
   const cuetGateCoords = useMemo(() => [91.9729445, 22.4620833], []);
 
@@ -40,7 +40,7 @@ const BestPath = () => {
   const geocodeAddress = useCallback(
     async (address) => {
       const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-        address
+        address,
       )}.json?access_token=${mapboxgl.accessToken}`;
       const response = await fetch(url);
       const data = await response.json();
@@ -64,7 +64,7 @@ const BestPath = () => {
         return null;
       }
     },
-    [haversineDistance, cuetGateCoords]
+    [haversineDistance, cuetGateCoords],
   );
 
   const getRoute = useCallback(
@@ -82,11 +82,11 @@ const BestPath = () => {
 
         return route.geometry;
       } else {
-        alert("No route found");
+        alert('No route found');
         return null;
       }
     },
-    [transportMode]
+    [transportMode],
   );
 
   const updateMap = useCallback(
@@ -108,31 +108,31 @@ const BestPath = () => {
         duration: 2000,
       });
 
-      const sourceMarker = new mapboxgl.Marker({ color: "blue" })
+      const sourceMarker = new mapboxgl.Marker({ color: 'blue' })
         .setLngLat(sourceCoords)
-        .setPopup(new mapboxgl.Popup().setHTML("<h3>Source</h3>"))
+        .setPopup(new mapboxgl.Popup().setHTML('<h3>Source</h3>'))
         .addTo(map);
       markers.current.push(sourceMarker);
 
-      const destinationMarker = new mapboxgl.Marker({ color: "red" })
+      const destinationMarker = new mapboxgl.Marker({ color: 'red' })
         .setLngLat(destinationCoords)
-        .setPopup(new mapboxgl.Popup().setHTML("<h3>Destination</h3>"))
+        .setPopup(new mapboxgl.Popup().setHTML('<h3>Destination</h3>'))
         .addTo(map);
       markers.current.push(destinationMarker);
 
       if (routeGeoJSON) {
-        if (map.getLayer("route-layer")) {
-          map.removeLayer("route-layer");
-          map.removeSource("route");
+        if (map.getLayer('route-layer')) {
+          map.removeLayer('route-layer');
+          map.removeSource('route');
         }
 
-        map.addSource("route", {
-          type: "geojson",
+        map.addSource('route', {
+          type: 'geojson',
           data: {
-            type: "FeatureCollection",
+            type: 'FeatureCollection',
             features: [
               {
-                type: "Feature",
+                type: 'Feature',
                 geometry: routeGeoJSON,
               },
             ],
@@ -140,26 +140,26 @@ const BestPath = () => {
         });
 
         map.addLayer({
-          id: "route-layer",
-          type: "line",
-          source: "route",
+          id: 'route-layer',
+          type: 'line',
+          source: 'route',
           layout: {
-            "line-join": "round",
-            "line-cap": "round",
+            'line-join': 'round',
+            'line-cap': 'round',
           },
           paint: {
-            "line-color": "#00FF00",
-            "line-width": 6,
+            'line-color': '#00FF00',
+            'line-width': 6,
           },
         });
       }
     },
-    [map]
+    [map],
   );
 
   const fetchSuggestions = async (value) => {
     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
-      value
+      value,
     )}.json?access_token=${mapboxgl.accessToken}`;
     const response = await fetch(url);
     const data = await response.json();
@@ -169,7 +169,7 @@ const BestPath = () => {
         data.features.map((feature) => ({
           name: feature.place_name,
           coords: feature.geometry.coordinates,
-        }))
+        })),
       );
     } else {
       setSuggestions([]);
@@ -189,10 +189,10 @@ const BestPath = () => {
   };
 
   const handleSuggestionSelected = (event, { suggestion }) => {
-    if (inputFocus === "source") {
+    if (inputFocus === 'source') {
       setSource(suggestion.name);
       setSourceCoords(suggestion.coords);
-    } else if (inputFocus === "destination") {
+    } else if (inputFocus === 'destination') {
       setDestination(suggestion.name);
       setDestinationCoords(suggestion.coords);
     }
@@ -205,11 +205,11 @@ const BestPath = () => {
   );
 
   const theme = {
-    container: "autosuggest-container",
-    input: "input", // Reuse your input styling
-    suggestionsContainer: "autosuggest-suggestions-container",
-    suggestion: "autosuggest-suggestion-item",
-    suggestionHighlighted: "autosuggest-suggestion-highlighted",
+    container: 'autosuggest-container',
+    input: 'input', // Reuse your input styling
+    suggestionsContainer: 'autosuggest-suggestions-container',
+    suggestion: 'autosuggest-suggestion-item',
+    suggestionHighlighted: 'autosuggest-suggestion-highlighted',
   };
 
   const handleSubmit = async (e) => {
@@ -225,16 +225,16 @@ const BestPath = () => {
 
   useEffect(() => {
     const newMap = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/streets-v11",
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
       center: cuetGateCoords,
       zoom: 15,
     });
 
-    newMap.on("load", () => {
-      const initialMarker = new mapboxgl.Marker({ color: "red" })
+    newMap.on('load', () => {
+      const initialMarker = new mapboxgl.Marker({ color: 'red' })
         .setLngLat(cuetGateCoords)
-        .setPopup(new mapboxgl.Popup().setHTML("<h3>CUET Gate</h3>"))
+        .setPopup(new mapboxgl.Popup().setHTML('<h3>CUET Gate</h3>'))
         .addTo(newMap);
       markers.current.push(initialMarker);
     });
@@ -256,10 +256,10 @@ const BestPath = () => {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={{
-              placeholder: "From",
+              placeholder: 'From',
               value: source,
               onChange: (_, { newValue }) => setSource(newValue),
-              onFocus: () => setInputFocus("source"),
+              onFocus: () => setInputFocus('source'),
             }}
           />
           <Autosuggest
@@ -271,10 +271,10 @@ const BestPath = () => {
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
             inputProps={{
-              placeholder: "To",
+              placeholder: 'To',
               value: destination,
               onChange: (_, { newValue }) => setDestination(newValue),
-              onFocus: () => setInputFocus("destination"),
+              onFocus: () => setInputFocus('destination'),
             }}
           />
         </div>
@@ -307,11 +307,11 @@ const BestPath = () => {
         <div className="info">
           <div className="journey-info">
             <h2>
-              This may be the best path with the least distance{" "}
+              This may be the best path with the least distance{' '}
               <span className="highlight-distance">
-                {routeInfo.distance.toFixed(2)} km,{" "}
+                {routeInfo.distance.toFixed(2)} km,{' '}
               </span>
-              and time{" "}
+              and time{' '}
               <span className="highlight-time">
                 {`${Math.floor(routeInfo.duration / 60)} hour ${(
                   routeInfo.duration % 60
